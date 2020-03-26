@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BEDB4D38242CDD2300FBF19B /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDB4D37242CDD2300FBF19B /* GCDAsyncSocket.m */; };
+		BEDB4D3E242CF70200FBF19B /* tcping.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDB4D3D242CF70200FBF19B /* tcping.swift */; };
 		E8BF8252242B2924008DC243 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BF8251242B2924008DC243 /* main.swift */; };
-		E8BF825E242B2955008DC243 /* tcping.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BF825D242B2955008DC243 /* tcping.m */; };
 		E8BF8260242B2A09008DC243 /* ConsoleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BF825F242B2A09008DC243 /* ConsoleIO.swift */; };
-		E8BF8262242B2B7D008DC243 /* Ping.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BF8261242B2B7D008DC243 /* Ping.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,13 +26,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BEDB4D36242CDD2300FBF19B /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		BEDB4D37242CDD2300FBF19B /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		BEDB4D3D242CF70200FBF19B /* tcping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tcping.swift; sourceTree = "<group>"; };
 		E8BF824E242B2924008DC243 /* tcping */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = tcping; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8BF8251242B2924008DC243 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		E8BF8258242B293F008DC243 /* tcping-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "tcping-Bridging-Header.h"; sourceTree = "<group>"; };
-		E8BF825C242B2955008DC243 /* tcping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tcping.h; sourceTree = "<group>"; };
-		E8BF825D242B2955008DC243 /* tcping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tcping.m; sourceTree = "<group>"; };
 		E8BF825F242B2A09008DC243 /* ConsoleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleIO.swift; sourceTree = "<group>"; };
-		E8BF8261242B2B7D008DC243 /* Ping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ping.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,9 +67,9 @@
 			children = (
 				E8BF8251242B2924008DC243 /* main.swift */,
 				E8BF825F242B2A09008DC243 /* ConsoleIO.swift */,
-				E8BF8261242B2B7D008DC243 /* Ping.swift */,
-				E8BF825C242B2955008DC243 /* tcping.h */,
-				E8BF825D242B2955008DC243 /* tcping.m */,
+				BEDB4D3D242CF70200FBF19B /* tcping.swift */,
+				BEDB4D36242CDD2300FBF19B /* GCDAsyncSocket.h */,
+				BEDB4D37242CDD2300FBF19B /* GCDAsyncSocket.m */,
 				E8BF8258242B293F008DC243 /* tcping-Bridging-Header.h */,
 			);
 			path = tcping;
@@ -134,10 +134,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8BF8262242B2B7D008DC243 /* Ping.swift in Sources */,
+				BEDB4D38242CDD2300FBF19B /* GCDAsyncSocket.m in Sources */,
 				E8BF8260242B2A09008DC243 /* ConsoleIO.swift in Sources */,
+				BEDB4D3E242CF70200FBF19B /* tcping.swift in Sources */,
 				E8BF8252242B2924008DC243 /* main.swift in Sources */,
-				E8BF825E242B2955008DC243 /* tcping.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +267,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "tcping/tcping-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -284,6 +285,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "tcping/tcping-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

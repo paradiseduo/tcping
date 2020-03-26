@@ -43,5 +43,26 @@ class ConsoleIO {
           -c, --count <count>     The number of times to repeat 'tcping'. Default value is 10, Max value is 65535
           -h, --help              Show help information.
         """)
+        NotificationCenter.default.post(name: NSNotification.Name("stop"), object: nil)
+    }
+    
+    func printResult(isFinish: Bool = false, detail: tcping, count: UInt = 1, lossCount: UInt = 0, min: NSNumber = 0.0, max: NSNumber = 0.0, avge: NSNumber = 0.0) {
+        let nf = NumberFormatter()
+        nf.numberStyle = .decimal
+        nf.maximumFractionDigits = 3
+
+        if isFinish {
+            self.writeMessage("Ping statistics \(detail.host):\(detail.port)")
+            self.writeMessage("    \(count) probes sent.")
+            self.writeMessage("    \(count-lossCount) successful, \(lossCount) failed.")
+            self.writeMessage("Approximate trip times:")
+            self.writeMessage("    Minimum = \(nf.string(from: min) ?? "")ms, Maximum = \(nf.string(from: max) ?? "")ms, Average = \(nf.string(from: avge) ?? "")ms")
+        } else {
+            if detail.host == detail.domain {
+                self.writeMessage("\(detail.host):\(detail.port) - Connected - \(nf.string(from: NSNumber(value: detail.speed)) ?? "")ms")
+            } else {
+                self.writeMessage("\(detail.domain):\(detail.port) has address: (\(detail.host):\(detail.port)) - Connected - \(nf.string(from: NSNumber(value: detail.speed)) ?? "")ms")
+            }
+        }
     }
 }
