@@ -4,6 +4,7 @@ tcping isn't like normal tcping, and written with Swift.
 
 # Usage
 ```
+➜ mv tcping /usr/local/bin/
 ➜ tcping --help
 tcping is a ping over tcp connection.
 
