@@ -1,6 +1,6 @@
 # tcping
 
-Better than tcping installed by brew👍
+Better than tcping installed by Homebrew👍
 
 Written with Swift👍
 
