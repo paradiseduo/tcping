@@ -1,6 +1,10 @@
 # tcping
 
-tcping isn't like normal tcping, and written with Swift.
+Better than tcping installed by brew👍
+
+Written with Swift👍
+
+Support MacOS only👍
 
 # Usage
 ```bash
