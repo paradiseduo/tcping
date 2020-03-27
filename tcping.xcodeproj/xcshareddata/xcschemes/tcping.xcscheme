@@ -52,11 +52,11 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "104.224.187.119"
+            argument = "google.com"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "56789"
+            argument = "443"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

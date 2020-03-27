@@ -26,8 +26,12 @@ group.notify(queue: DispatchQueue.main) {
     let min = successArr.min { (a, b) -> Bool in
         return a.speed < b.speed
     }?.speed
-    let avge = successArr.reduce(0.0) { (result: Double, p: tcping) -> Double in return result+p.speed}/Double(successArr.count)
-    ConsoleIO().printResult(isFinish: true, detail: sockets[0], count: UInt(sockets.count), lossCount: UInt(sockets.count-successArr.count), min: NSNumber(value: min!), max: NSNumber(value: max!), avge: NSNumber(value: avge))
+    if successArr.count == 0 {
+        ConsoleIO().printResult(isFinish: true, detail: sockets[0], count: UInt(sockets.count), lossCount: UInt(sockets.count), min: NSNumber(value: Double.infinity), max: NSNumber(value: Double.infinity), avge: NSNumber(value: Double.infinity))
+    } else {
+        let avge = successArr.reduce(0.0) { (result: Double, p: tcping) -> Double in return result+p.speed}/Double(successArr.count)
+        ConsoleIO().printResult(isFinish: true, detail: sockets[0], count: UInt(sockets.count), lossCount: UInt(sockets.count-successArr.count), min: NSNumber(value: min!), max: NSNumber(value: max!), avge: NSNumber(value: avge))
+    }
     NotificationCenter.default.post(name: NSNotification.Name("stop"), object: nil)
 }
 

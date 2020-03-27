@@ -34,7 +34,8 @@ class tcping: NSObject, GCDAsyncSocketDelegate {
                 startTime = Date()
                 try self.socket?.connect(toHost: domain, onPort: port, withTimeout: 1)
             } catch let error {
-                io.writeMessage("\(error)", to: OutputType.error)
+                io.writeMessage(error.localizedDescription, to: OutputType.error)
+                self.group.leave()
             }
         }
     }
@@ -48,7 +49,7 @@ class tcping: NSObject, GCDAsyncSocketDelegate {
     
     func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?) {
         if let e = err {
-            io.writeMessage("\(e)")
+            io.writeMessage(e.localizedDescription, to: OutputType.error)
             self.group.leave()
         }
     }

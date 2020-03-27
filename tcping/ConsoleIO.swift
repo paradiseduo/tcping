@@ -52,7 +52,11 @@ class ConsoleIO {
         nf.maximumFractionDigits = 3
 
         if isFinish {
-            self.writeMessage("Ping statistics \(detail.host):\(detail.port)")
+            if detail.host != "" {
+                self.writeMessage("Ping statistics \(detail.host):\(detail.port)")
+            } else {
+                self.writeMessage("Ping statistics \(detail.domain):\(detail.port)")
+            }
             self.writeMessage("    \(count) probes sent.")
             self.writeMessage("    \(count-lossCount) successful, \(lossCount) failed.")
             self.writeMessage("Approximate trip times:")
