@@ -3,7 +3,7 @@
 tcping isn't like normal tcping, and written with Swift.
 
 # Usage
-```
+```bash
 ➜ mv tcping /usr/local/bin/
 ➜ tcping --help
 tcping is a ping over tcp connection.
@@ -26,32 +26,32 @@ OPTIONS:
 ```
 
 # Examples
-baidu.com
-```
+with domain
+```bash
 ➜ tcping -c 5 baidu.com 443
-baidu.com:443 has address: (39.156.69.79:443) - Connected - 52.651ms
-baidu.com:443 has address: (39.156.69.79:443) - Connected - 50.82ms
-baidu.com:443 has address: (39.156.69.79:443) - Connected - 53.418ms
-baidu.com:443 has address: (39.156.69.79:443) - Connected - 51.475ms
-baidu.com:443 has address: (39.156.69.79:443) - Connected - 48.006ms
-Ping statistics baidu.com:443
+baidu.com:443 has address: (220.181.38.148:443) - Connected - 37.299ms
+baidu.com:443 has address: (220.181.38.148:443) - Connected - 38.128ms
+baidu.com:443 has address: (39.156.69.79:443) - Connected - 54.397ms
+baidu.com:443 has address: (220.181.38.148:443) - Connected - 31.603ms
+baidu.com:443 has address: (220.181.38.148:443) - Connected - 32.62ms
+Ping statistics 220.181.38.148:443
     5 probes sent.
     5 successful, 0 failed.
 Approximate trip times:
-    Minimum = 48.006ms, Maximum = 53.418ms, Average = 51.274ms
+    Minimum = 31.603ms, Maximum = 54.397ms, Average = 38.809ms
 ```
 
 with ip
-```
-➜ tcping -c 5 39.156.69.79 443
-39.156.69.79:443 - Connected - 59.852ms
-39.156.69.79:443 - Connected - 50.307ms
-39.156.69.79:443 - Connected - 50.308ms
-39.156.69.79:443 - Connected - 49.254ms
-39.156.69.79:443 - Connected - 50.308ms
-Ping statistics 39.156.69.79:443
+```bash
+➜ tcping -c 5 220.181.38.148 443
+220.181.38.148:443 - Connected - 30.635ms
+220.181.38.148:443 - Connected - 30.816ms
+220.181.38.148:443 - Connected - 28.708ms
+220.181.38.148:443 - Connected - 30.713ms
+220.181.38.148:443 - Connected - 34.641ms
+Ping statistics 220.181.38.148:443
     5 probes sent.
     5 successful, 0 failed.
 Approximate trip times:
-    Minimum = 49.254ms, Maximum = 59.852ms, Average = 52.006ms
+    Minimum = 28.708ms, Maximum = 34.641ms, Average = 31.103ms
 ```
