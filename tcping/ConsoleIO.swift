@@ -25,6 +25,8 @@ class ConsoleIO {
     
     func printUsage() {
         writeMessage("""
+        Version 2.3
+
         tcping is a ping over tcp connection.
 
         Examples:
