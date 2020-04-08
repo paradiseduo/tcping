@@ -62,30 +62,68 @@ class Tcping {
             consoleIO.printUsage()
             return
         }
+        if CommandLine.arguments.contains(where: { (s) -> Bool in
+            return s=="-h" || s=="--help"
+        }) {
+            consoleIO.printUsage()
+            return
+        }
         var ip = ""
-        var port = ""
+        var port = "65535"
         
         if CommandLine.argc == 3 {
-            ip = CommandLine.arguments[1]
-            port = CommandLine.arguments[2]
+            let a = CommandLine.arguments[1]
+            let b = CommandLine.arguments[2]
+            if a.count > b.count {
+                ip = a
+                port = b
+            } else {
+                ip = b
+                port = a
+            }
             if let p = UInt16(port) {
                 Tcping.ping(domain: ip, port: p, count: 10)
             } else {
                 consoleIO.printUsage()
             }
         } else {
-            let argument = CommandLine.arguments[1]
-            ip = CommandLine.arguments[3]
-            port = CommandLine.arguments[4]
-            if argument == "-c" || argument == "--count" {
-                if let p = UInt16(port) {
-                    if let c = UInt(CommandLine.arguments[2]) {
-                        Tcping.ping(domain: ip, port: p, count: c)
+            var countIndex = 0
+            var countStringIndex = 0
+            var argument = ""
+            var count = ""
+            for (i, item) in CommandLine.arguments.enumerated() {
+                if item == "-c" || item == "--count" {
+                    argument = item
+                    countStringIndex = i
+                    countIndex = countStringIndex+1
+                    if countIndex >= CommandLine.arguments.count {
+                        consoleIO.printUsage()
+                        return
                     } else {
-                        consoleIO.writeMessage("Count only a number")
+                        count = CommandLine.arguments[countIndex]
                     }
                 } else {
-                    consoleIO.writeMessage("Port only a number")
+                    if i != countIndex && i != countStringIndex {
+                        if port.count >= item.count {
+                            port = item
+                        }
+                        if ip.count <= item.count {
+                            ip = item
+                        }
+                    }
+                }
+            }
+
+            print(ip, port, argument, count)
+            if argument == "-c" || argument == "--count" {
+                if let p = UInt16(port) {
+                    if let c = UInt(count), c <= 65535 {
+                        Tcping.ping(domain: ip, port: p, count: c)
+                    } else {
+                        consoleIO.writeMessage("Count only a number, or out of range(1-65535)")
+                    }
+                } else {
+                    consoleIO.writeMessage("Port only a number, or out of range(1-65535)")
                 }
             } else {
                 consoleIO.printUsage()
