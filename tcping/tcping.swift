@@ -2,8 +2,8 @@
 //  tcping.swift
 //  tcping
 //
-//  Created by YouShaoduo on 2020/3/26.
-//  Copyright © 2020 YouShaoduo. All rights reserved.
+//  Created by ParadiseDuo on 2020/3/26.
+//  Copyright © 2020 ParadiseDuo. All rights reserved.
 //
 
 import Cocoa

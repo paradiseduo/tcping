@@ -2,11 +2,13 @@
 //  main.swift
 //  tcping
 //
-//  Created by YouShaoduo on 2020/3/26.
-//  Copyright © 2020 YouShaoduo. All rights reserved.
+//  Created by ParadiseDuo on 2020/3/26.
+//  Copyright © 2020 ParadiseDuo. All rights reserved.
 //
 
 import Foundation
+
+let version = "2.3"
 
 var running = true
 
