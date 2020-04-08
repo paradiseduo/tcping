@@ -10,6 +10,8 @@ Support MacOS only👍
 ```bash
 ➜ mv tcping /usr/local/bin/
 ➜ tcping --help
+Version 2.3
+
 tcping is a ping over tcp connection.
 
 Examples:
