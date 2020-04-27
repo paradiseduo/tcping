@@ -6,12 +6,16 @@ Written with Swift👍
 
 Support MacOS only👍
 
-# Usage
+# Download & Install
 ```bash
 ➜ wget https://github.com/paradiseduo/tcping/releases/download/2.3/tcping.zip
 ➜ unzip tcping.zip
 ➜ chmod +x tcping
 ➜ mv tcping /usr/local/bin/
+```
+
+# Usage
+```bash
 ➜ tcping --help
 Version 2.3
 
