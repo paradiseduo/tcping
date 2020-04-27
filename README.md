@@ -10,6 +10,7 @@ Support MacOS only👍
 ```bash
 ➜ wget https://github.com/paradiseduo/tcping/releases/download/2.3/tcping.zip
 ➜ unzip tcping.zip
+➜ chmod +x tcping
 ➜ mv tcping /usr/local/bin/
 ➜ tcping --help
 Version 2.3
