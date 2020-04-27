@@ -8,6 +8,8 @@ Support MacOS only👍
 
 # Usage
 ```bash
+➜ wget https://github.com/paradiseduo/tcping/releases/download/2.3/tcping.zip
+➜ unzip tcping.zip
 ➜ mv tcping /usr/local/bin/
 ➜ tcping --help
 Version 2.3
