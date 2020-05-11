@@ -22,12 +22,9 @@
 }
 
 + (void)printUsage {
-    [ConsoleIO writeMessage:[NSString stringWithFormat:@"Version %@\n\n", VERSION] to:OutputTypeStandard];
+    [ConsoleIO writeMessage:[NSString stringWithFormat:@"Version %@\n", VERSION] to:OutputTypeStandard];
     
     NSString * verbose = @"\
-tcping is a ping over tcp connection.\n\
-\n\
-Examples:\n\
 \n\
 tcping is a ping over tcp connection.\n\
 \n\

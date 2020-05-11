@@ -9,6 +9,6 @@
 #ifndef Version_h
 #define Version_h
 
-#define VERSION @"2.4"
+#define VERSION @"3.0"
 
 #endif /* Version_h */
