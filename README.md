@@ -2,13 +2,13 @@
 
 Better than tcping installed by Homebrew👍
 
-Written with Swift👍
+Written with Objective-C👍
 
 Support MacOS only👍
 
 # Download & Install
 ```bash
-➜ wget https://github.com/paradiseduo/tcping/releases/download/2.3/tcping.zip
+➜ wget https://github.com/paradiseduo/tcping/releases/download/3.0/tcping.zip
 ➜ unzip tcping.zip
 ➜ chmod +x tcping
 ➜ mv tcping /usr/local/bin/
@@ -17,7 +17,7 @@ Support MacOS only👍
 # Usage
 ```bash
 ➜ tcping --help
-Version 2.3
+Version 3.0
 
 tcping is a ping over tcp connection.
 
