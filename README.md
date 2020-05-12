@@ -8,7 +8,7 @@ Support MacOS only👍
 
 # Download & Install
 ```bash
-➜ wget https://github.com/paradiseduo/tcping/releases/download/3.0/tcping.zip
+➜ wget https://github.com/paradiseduo/tcping/releases/download/3.1/tcping.zip
 ➜ unzip tcping.zip
 ➜ chmod +x tcping
 ➜ mv tcping /usr/local/bin/
@@ -17,7 +17,7 @@ Support MacOS only👍
 # Usage
 ```bash
 ➜ tcping --help
-Version 3.0
+Version 3.1
 
 tcping is a ping over tcp connection.
 
