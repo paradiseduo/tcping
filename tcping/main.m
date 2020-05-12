@@ -47,6 +47,7 @@ int main(int argc, const char * argv[]) {
                 ping(ip, p, 10, group, queue, sockets);
             } else {
                 [ConsoleIO printUsage];
+                return 0;
             }
         } else {
             int countIndex = 0;
@@ -92,6 +93,7 @@ int main(int argc, const char * argv[]) {
                 }
             } else {
                 [ConsoleIO printUsage];
+                return 0;
             }
         }
         dispatch_group_notify(group, dispatch_get_main_queue(), ^{
