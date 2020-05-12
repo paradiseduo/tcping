@@ -98,13 +98,13 @@ int main(int argc, const char * argv[]) {
         }
         dispatch_group_notify(group, dispatch_get_main_queue(), ^{
             if (sockets.count > 0) {
-                NSMutableArray<Tcping *> * successArray = [[NSMutableArray alloc] init];
+                NSInteger successCount = 0;
                 NSTimeInterval min = INFINITY;
                 NSTimeInterval max = 0;
                 NSTimeInterval sum = 0;
                 for (Tcping * t in sockets) {
                     if (t.speed != INFINITY) {
-                        [successArray addObject:t];
+                        successCount += 1;
                         if (t.speed > max) {
                             max = t.speed;
                         }
@@ -114,11 +114,11 @@ int main(int argc, const char * argv[]) {
                         sum += t.speed;
                     }
                 }
-                if (successArray.count == 0) {
+                if (successCount == 0) {
                     [ConsoleIO printReulst:YES detail:sockets[0] count:sockets.count lossCount:sockets.count min:[NSNumber numberWithDouble:min] max:[NSNumber numberWithDouble:max] avge:[NSNumber numberWithDouble:INFINITY]];
                 } else {
-                    double s = successArray.count*1.0;
-                    [ConsoleIO printReulst:YES detail:sockets[0] count:sockets.count lossCount:sockets.count-successArray.count min:[NSNumber numberWithDouble:min] max:[NSNumber numberWithDouble:max] avge:[NSNumber numberWithDouble:sum/s]];
+                    double s = successCount*1.0;
+                    [ConsoleIO printReulst:YES detail:sockets[0] count:sockets.count lossCount:sockets.count-successCount min:[NSNumber numberWithDouble:min] max:[NSNumber numberWithDouble:max] avge:[NSNumber numberWithDouble:sum/s]];
                 }
                 running = NO;
             }
