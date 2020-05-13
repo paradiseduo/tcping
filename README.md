@@ -42,16 +42,16 @@ OPTIONS:
 with domain
 ```bash
 ➜ tcping -c 5 baidu.com 443
-baidu.com:443 has address: (220.181.38.148:443) - Connected - 37.299ms
-baidu.com:443 has address: (220.181.38.148:443) - Connected - 38.128ms
-baidu.com:443 has address: (39.156.69.79:443) - Connected - 54.397ms
-baidu.com:443 has address: (220.181.38.148:443) - Connected - 31.603ms
-baidu.com:443 has address: (220.181.38.148:443) - Connected - 32.62ms
-Ping statistics 220.181.38.148:443
+baidu.com:443 has address: 220.181.38.148:443 - Connected - 32.682ms
+baidu.com:443 has address: 220.181.38.148:443 - Connected - 29.372ms
+baidu.com:443 has address: 39.156.69.79:443 - Connected - 52.232ms
+baidu.com:443 has address: 220.181.38.148:443 - Connected - 28.922ms
+baidu.com:443 has address: 220.181.38.148:443 - Connected - 28.975ms
+Ping statistics baidu.com:443
     5 probes sent.
     5 successful, 0 failed.
 Approximate trip times:
-    Minimum = 31.603ms, Maximum = 54.397ms, Average = 38.809ms
+    Minimum = 28.922ms, Maximum = 52.232ms, Average = 34.437ms
 ```
 
 with ip
