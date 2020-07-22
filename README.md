@@ -12,6 +12,7 @@ Support MacOS only👍
 ➜ unzip tcping.zip
 ➜ chmod +x tcping
 ➜ mv tcping /usr/local/bin/
+➜ sudo xattr -rd com.apple.quarantine /usr/local/bin/tcping
 ```
 
 # Usage
