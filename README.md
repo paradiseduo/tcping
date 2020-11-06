@@ -69,3 +69,6 @@ Ping statistics 220.181.38.148:443
 Approximate trip times:
     Minimum = 28.708ms, Maximum = 34.641ms, Average = 31.103ms
 ```
+
+# Star Trend
+[![Stargazers over time](https://starchart.cc/paradiseduo/IPAPatch.svg)](https://starchart.cc/paradiseduo/IPAPatch)
