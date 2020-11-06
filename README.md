@@ -6,7 +6,7 @@ Written with Objective-C👍
 
 Support MacOS only👍
 
-# Download & Install
+## Download & Install
 ```bash
 ➜ wget https://github.com/paradiseduo/tcping/releases/download/3.1/tcping.zip
 ➜ unzip tcping.zip
@@ -15,7 +15,7 @@ Support MacOS only👍
 ➜ sudo xattr -rd com.apple.quarantine /usr/local/bin/tcping
 ```
 
-# Usage
+## Usage
 ```bash
 ➜ tcping --help
 Version 3.1
@@ -39,7 +39,7 @@ OPTIONS:
   -h, --help              Show help information.
 ```
 
-# Examples
+## Examples
 with domain
 ```bash
 ➜ tcping -c 5 baidu.com 443
@@ -70,5 +70,5 @@ Approximate trip times:
     Minimum = 28.708ms, Maximum = 34.641ms, Average = 31.103ms
 ```
 
-# Star Trend
+## Star Trend
 [![Stargazers over time](https://starchart.cc/paradiseduo/tcping.svg)](https://starchart.cc/paradiseduo/tcping)
