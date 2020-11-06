@@ -71,4 +71,4 @@ Approximate trip times:
 ```
 
 # Star Trend
-[![Stargazers over time](https://starchart.cc/paradiseduo/IPAPatch.svg)](https://starchart.cc/paradiseduo/IPAPatch)
+[![Stargazers over time](https://starchart.cc/paradiseduo/tcping.svg)](https://starchart.cc/paradiseduo/tcping)
