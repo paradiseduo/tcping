@@ -55,7 +55,7 @@ Approximate trip times:
     Minimum = 28.922ms, Maximum = 52.232ms, Average = 34.437ms
 ```
 
-with ip
+with ipv4
 ```bash
 ❯ tcping -c 5 220.181.38.148 443
 220.181.38.148:443 - Connected - 30.635ms
