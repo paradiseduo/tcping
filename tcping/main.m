@@ -35,12 +35,20 @@ int main(int argc, const char * argv[]) {
         if (argc == 3) {
             NSString * a = [[NSString alloc] initWithCString:argv[1] encoding:NSUTF8StringEncoding];
             NSString * b = [[NSString alloc] initWithCString:argv[2] encoding:NSUTF8StringEncoding];
-            if ([a length] > [b length]) {
+            if ([a containsString:@":"]) {
                 ip = a;
                 port = b;
-            } else {
+            } else if ([b containsString:@":"]) {
                 ip = b;
                 port = a;
+            } else {
+                if ([a length] > [b length]) {
+                    ip = a;
+                    port = b;
+                } else {
+                    ip = b;
+                    port = a;
+                }
             }
             UInt16 p = port.intValue;
             if (p) {
@@ -69,11 +77,10 @@ int main(int argc, const char * argv[]) {
                     }
                 } else {
                     if (i != countIndex && i != countStringIndex) {
-                        if ([port length] >= [item length]) {
-                            port = item;
-                        }
-                        if ([ip length] <= [item length]) {
+                        if ([item containsString:@":"] || [item containsString:@"."]) {
                             ip = item;
+                        } else {
+                            port = item;
                         }
                     }
                 }
@@ -87,9 +94,11 @@ int main(int argc, const char * argv[]) {
                         ping(ip, p, c, group, queue, sockets);
                     } else {
                         [ConsoleIO writeMessage:@"Count only a number, or out of range(1-65535)" to:OutputTypeStandard];
+                        return 0;
                     }
                 } else {
                     [ConsoleIO writeMessage:@"Port only a number, or out of range(1-65535)" to:OutputTypeStandard];
+                    return 0;
                 }
             } else {
                 [ConsoleIO printUsage];
