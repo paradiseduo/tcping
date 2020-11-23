@@ -18,7 +18,7 @@ Support MacOS only👍
 ## Usage
 ```bash
 ➜ tcping --help
-Version 3.1
+Version 3.2
 
 tcping is a ping over tcp connection.
 
@@ -42,7 +42,7 @@ OPTIONS:
 ## Examples
 with domain
 ```bash
-➜ tcping -c 5 baidu.com 443
+❯ tcping -c 5 baidu.com 443
 baidu.com:443 has address: 220.181.38.148:443 - Connected - 32.682ms
 baidu.com:443 has address: 220.181.38.148:443 - Connected - 29.372ms
 baidu.com:443 has address: 39.156.69.79:443 - Connected - 52.232ms
@@ -57,7 +57,7 @@ Approximate trip times:
 
 with ip
 ```bash
-➜ tcping -c 5 220.181.38.148 443
+❯ tcping -c 5 220.181.38.148 443
 220.181.38.148:443 - Connected - 30.635ms
 220.181.38.148:443 - Connected - 30.816ms
 220.181.38.148:443 - Connected - 28.708ms
@@ -68,6 +68,19 @@ Ping statistics 220.181.38.148:443
     5 successful, 0 failed.
 Approximate trip times:
     Minimum = 28.708ms, Maximum = 34.641ms, Average = 31.103ms
+```
+
+with ipv6
+```bash
+❯ tcping -c 3 ::1 8080                                                                                                                                           
+::1:8080 - Connected - 0.502ms
+::1:8080 - Connected - 0.432ms
+::1:8080 - Connected - 0.752ms
+Ping statistics ::1:8080
+    3 probes sent.
+    3 successful, 0 failed.
+Approximate trip times:
+    Minimum = 0.432ms, Maximum = 0.752ms, Average = 0.562ms
 ```
 
 ## Star Trend
