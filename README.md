@@ -8,7 +8,7 @@ Support MacOS only👍
 
 ## Download & Install
 ```bash
-➜ wget https://github.com/paradiseduo/tcping/releases/download/3.1/tcping.zip
+➜ wget https://github.com/paradiseduo/tcping/releases/download/3.2/tcping.zip
 ➜ unzip tcping.zip
 ➜ chmod +x tcping
 ➜ mv tcping /usr/local/bin/
