@@ -133,7 +133,7 @@ int main(int argc, const char * argv[]) {
             }
         });
         while (running && [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]]) {
-            
+            return 0;
         }
     }
     return 0;

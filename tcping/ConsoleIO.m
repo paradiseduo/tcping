@@ -22,13 +22,20 @@
 }
 
 + (void)printUsage {
-    [ConsoleIO writeMessage:[NSString stringWithFormat:@"Version %@\n", VERSION] to:OutputTypeStandard];
-    
-    NSString * verbose = @"\
-\n\
-tcping is a ping over tcp connection.\n\
-\n\
-Examples:\n\
+   
+    NSString * v = @""
+"\n      dP                     oo"
+"\n      88"
+"\n    d8888P .d8888b. 88d888b. dP 88d888b. .d8888b.    {Version: %@}"
+"\n      88   88       88    88 88 88    88 88    88"
+"\n      88   88.      88.  .88 88 88    88 88.  .88"
+"\n      dP   `88888P  88Y888P  dP dP    dP `8888P88"
+"\n                    88                        .88"
+"\n                    dP                    d8888P"
+"\n"
+"\ntcping is a ping over tcp connection.\n"
+"\n"
+"Examples:\n\
     1. ping over tcp with custom port 10 times\n\
         > tcping www.baidu.com 80\n\
     2. ping over tcp with custom port 5 times\n\
@@ -44,6 +51,7 @@ OPTIONS:\n\
     -c, --count <count>     The number of times to repeat 'tcping'. Default value is 10, Max value is 65535\n\
     -h, --help              Show help information.\n";
     
+    NSString * verbose = [NSString stringWithFormat:v, VERSION];
     [ConsoleIO writeMessage:verbose to:OutputTypeStandard];
 }
 
