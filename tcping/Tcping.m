@@ -46,6 +46,7 @@
     _speed = ([[NSDate date] timeIntervalSince1970]-[_startTime timeIntervalSince1970])*1000;
     [ConsoleIO printReulst:NO detail:self count:0 lossCount:0 min:@0 max:@0 avge:@0];
     dispatch_group_leave(_group);
+    [sock disconnect];
 }
 
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err {
