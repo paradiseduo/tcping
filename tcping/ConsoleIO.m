@@ -57,7 +57,7 @@ OPTIONS:\n\
 
 + (void)printReulst:(BOOL)isFinish detail:(Tcping *)detail count:(NSUInteger)count lossCount:(NSUInteger)lossCount min:(NSNumber *)min max:(NSNumber *)max avge:(NSNumber *)avge {
     NSNumberFormatter * nf = [[NSNumberFormatter alloc] init];
-    nf.numberStyle = kCFNumberFormatterDecimalStyle;
+    nf.numberStyle = NSNumberFormatterDecimalStyle;
     nf.maximumFractionDigits = 3;
     
     if (isFinish) {
