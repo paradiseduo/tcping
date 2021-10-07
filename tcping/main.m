@@ -9,8 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "ConsoleIO.h"
 #import "Tcping.h"
+#import <signal.h>
 
 BOOL running = YES;
+NSMutableArray<Tcping *> * sockets;
 
 void ping(NSString *domain, UInt16 port, UInt count, dispatch_group_t group, dispatch_queue_t queue, NSMutableArray<Tcping *> * sockets) {
     for (int i = 1; i <= count; ++i) {
@@ -21,7 +23,42 @@ void ping(NSString *domain, UInt16 port, UInt count, dispatch_group_t group, dis
     }
 }
 
+void finish(void) {
+    if (sockets.count > 0) {
+        NSInteger successCount = 0;
+        NSTimeInterval min = INFINITY;
+        NSTimeInterval max = 0;
+        NSTimeInterval sum = 0;
+        for (Tcping * t in sockets) {
+            if (t.speed != INFINITY) {
+                successCount += 1;
+                if (t.speed > max) {
+                    max = t.speed;
+                }
+                if (t.speed < min) {
+                    min = t.speed;
+                }
+                sum += t.speed;
+            }
+        }
+        if (successCount == 0) {
+            [ConsoleIO printReulst:YES detail:sockets[0] count:sockets.count lossCount:sockets.count min:[NSNumber numberWithDouble:min] max:[NSNumber numberWithDouble:max] avge:[NSNumber numberWithDouble:INFINITY]];
+        } else {
+            double s = successCount*1.0;
+            [ConsoleIO printReulst:YES detail:sockets[0] count:sockets.count lossCount:sockets.count-successCount min:[NSNumber numberWithDouble:min] max:[NSNumber numberWithDouble:max] avge:[NSNumber numberWithDouble:sum/s]];
+        }
+        running = NO;
+    }
+}
+
+
+void sigHandler(int sig) {
+    finish();
+    exit(sig);
+}
+
 int main(int argc, const char * argv[]) {
+    signal(SIGINT, sigHandler);
     @autoreleasepool {
         if (argc < 3) {
             [ConsoleIO printUsage];
@@ -31,7 +68,7 @@ int main(int argc, const char * argv[]) {
         dispatch_group_t group = dispatch_group_create();
         NSString * ip = @"";
         NSString * port = @"65535";
-        NSMutableArray<Tcping *> * sockets = [[NSMutableArray alloc] initWithCapacity:1];
+        sockets = [[NSMutableArray alloc] initWithCapacity:1];
         if (argc == 3) {
             NSString * a = [[NSString alloc] initWithCString:argv[1] encoding:NSUTF8StringEncoding];
             NSString * b = [[NSString alloc] initWithCString:argv[2] encoding:NSUTF8StringEncoding];
@@ -106,31 +143,7 @@ int main(int argc, const char * argv[]) {
             }
         }
         dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-            if (sockets.count > 0) {
-                NSInteger successCount = 0;
-                NSTimeInterval min = INFINITY;
-                NSTimeInterval max = 0;
-                NSTimeInterval sum = 0;
-                for (Tcping * t in sockets) {
-                    if (t.speed != INFINITY) {
-                        successCount += 1;
-                        if (t.speed > max) {
-                            max = t.speed;
-                        }
-                        if (t.speed < min) {
-                            min = t.speed;
-                        }
-                        sum += t.speed;
-                    }
-                }
-                if (successCount == 0) {
-                    [ConsoleIO printReulst:YES detail:sockets[0] count:sockets.count lossCount:sockets.count min:[NSNumber numberWithDouble:min] max:[NSNumber numberWithDouble:max] avge:[NSNumber numberWithDouble:INFINITY]];
-                } else {
-                    double s = successCount*1.0;
-                    [ConsoleIO printReulst:YES detail:sockets[0] count:sockets.count lossCount:sockets.count-successCount min:[NSNumber numberWithDouble:min] max:[NSNumber numberWithDouble:max] avge:[NSNumber numberWithDouble:sum/s]];
-                }
-                running = NO;
-            }
+            finish();
         });
         while (running && [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]]) {
             return 0;
