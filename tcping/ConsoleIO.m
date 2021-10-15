@@ -41,15 +41,16 @@
     2. ping over tcp with custom port 5 times\n\
         > tcping -c 5 www.baidu.com 443\n\
 \n\
-USAGE: tcping [--count <count>] <ip> <port>\n\
+USAGE: tcping [--count <count>] [--interval <interval>] <ip> <port>\n\
 \n\
 ARGUMENTS:\n\
-    <ip>                    The IP or Domain to tcping.\n\
-    <port>                  The port to tcping.\n\
+    <ip>                        The IP or Domain to tcping.\n\
+    <port>                      The port to tcping.\n\
 \n\
 OPTIONS:\n\
-    -c, --count <count>     The number of times to repeat 'tcping'. Default value is 10, Max value is 65535\n\
-    -h, --help              Show help information.\n";
+    -c, --count <count>         The number of times to repeat 'tcping'. Default value is 10, Max value is 65535\n\
+    -i, --interval <interval>   The request interval(second). Default value is 1 second \n\
+    -h, --help                  Show help information.\n";
     
     NSString * verbose = [NSString stringWithFormat:v, VERSION];
     [ConsoleIO writeMessage:verbose to:OutputTypeStandard];
