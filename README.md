@@ -18,9 +18,10 @@ Support MacOS only👍
 ## Usage
 ```bash
 ➜ tcping --help
+
       dP                     oo
       88
-    d8888P .d8888b. 88d888b. dP 88d888b. .d8888b.    {Version: 3.3}
+    d8888P .d8888b. 88d888b. dP 88d888b. .d8888b.    {Version: 3.5}
       88   88       88    88 88 88    88 88    88
       88   88.      88.  .88 88 88    88 88.  .88
       dP   `88888P  88Y888P  dP dP    dP `8888P88
@@ -35,15 +36,16 @@ Examples:
     2. ping over tcp with custom port 5 times
         > tcping -c 5 www.baidu.com 443
 
-USAGE: tcping [--count <count>] <ip> <port>
+USAGE: tcping [--count <count>] [--interval <interval>] <ip> <port>
 
 ARGUMENTS:
-    <ip>                    The IP or Domain to tcping.
-    <port>                  The port to tcping.
+    <ip>                        The IP or Domain to tcping.
+    <port>                      The port to tcping.
 
 OPTIONS:
-    -c, --count <count>     The number of times to repeat 'tcping'. Default value is 10, Max value is 65535
-    -h, --help              Show help information.
+    -c, --count <count>         The number of times to repeat 'tcping'. Default value is 10, Max value is 65535
+    -i, --interval <interval>   The request interval(second). Default value is 1 second
+    -h, --help                  Show help information.
 ```
 
 ## Examples
