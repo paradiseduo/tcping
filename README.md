@@ -8,7 +8,7 @@ Support MacOS only👍
 
 ## Download & Install
 ```bash
-➜ wget https://github.com/paradiseduo/tcping/releases/download/3.5/tcping.zip
+➜ wget https://github.com/paradiseduo/tcping/releases/download/3.6/tcping.zip
 ➜ unzip tcping.zip
 ➜ chmod +x tcping
 ➜ mv tcping /usr/local/bin/
@@ -21,7 +21,7 @@ Support MacOS only👍
 
       dP                     oo
       88
-    d8888P .d8888b. 88d888b. dP 88d888b. .d8888b.    {Version: 3.5}
+    d8888P .d8888b. 88d888b. dP 88d888b. .d8888b.    {Version: 3.6}
       88   88       88    88 88 88    88 88    88
       88   88.      88.  .88 88 88    88 88.  .88
       dP   `88888P  88Y888P  dP dP    dP `8888P88
