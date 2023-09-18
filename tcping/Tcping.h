@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWith:(dispatch_group_t)group queue:(dispatch_queue_t) queue;
 
-- (void)connectSocket:(NSString *)domain port:(UInt16)port;
+- (void)connectSocket:(NSString *)domain port:(UInt16)port timeout:(NSTimeInterval)timeout;
 
 @end
 
