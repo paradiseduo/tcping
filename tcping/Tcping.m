@@ -26,7 +26,7 @@
     return self;
 }
 
-- (void)connectSocket:(NSString *)domain port:(UInt16)port {
+- (void)connectSocket:(NSString *)domain port:(UInt16)port timeout:(NSTimeInterval)timeout {
     _domain = domain;
     _port = port;
     _socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:_queue];
@@ -34,7 +34,7 @@
         dispatch_group_enter(_group);
         _startTime = [NSDate date];
         NSError * error = nil;
-        [_socket connectToHost:domain onPort:port withTimeout:1.0 error:&error];
+        [_socket connectToHost:domain onPort:port withTimeout:timeout error:&error];
         if (error) {
             dispatch_group_leave(_group);
         }
@@ -53,6 +53,7 @@
     if (err) {
         [ConsoleIO writeMessage:[err localizedDescription] to:OutputTypeError];
         dispatch_group_leave(_group);
+        [sock disconnect];
     }
 }
 @end
