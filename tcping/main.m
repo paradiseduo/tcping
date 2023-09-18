@@ -14,14 +14,14 @@
 BOOL running = YES;
 NSMutableArray<Tcping *> * sockets;
 
-void ping(NSTimeInterval interval, NSString *domain, UInt16 port, UInt count, dispatch_group_t group, dispatch_queue_t queue, NSMutableArray<Tcping *> * sockets) {
+void ping(NSTimeInterval interval, NSString *domain, UInt16 port, UInt count, NSTimeInterval timeout, dispatch_group_t group, dispatch_queue_t queue, NSMutableArray<Tcping *> * sockets) {
     for (int i = 1; i <= count; ++i) {
         if (i != 1) {
             [NSThread sleepForTimeInterval:interval];
         }
         Tcping * t = [[Tcping alloc] initWith:group queue:queue];
         [sockets addObject:t];
-        [t connectSocket:domain port:port];
+        [t connectSocket:domain port:port timeout:timeout];
     }
 }
 
@@ -70,6 +70,7 @@ int main(int argc, const char * argv[]) {
         dispatch_group_t group = dispatch_group_create();
         NSString * ip = @"";
         NSString * port = @"65535";
+        double timeout = 5.0;
         sockets = [[NSMutableArray alloc] initWithCapacity:1];
         if (argc == 3) {
             NSString * a = [[NSString alloc] initWithCString:argv[1] encoding:NSUTF8StringEncoding];
@@ -91,7 +92,7 @@ int main(int argc, const char * argv[]) {
             }
             UInt16 p = port.intValue;
             if (p) {
-                ping(1.0, ip, p, 10, group, queue, sockets);
+                ping(1.0, ip, p, 10, timeout, group, queue, sockets);
             } else {
                 [ConsoleIO printUsage];
                 return 0;
@@ -127,6 +128,16 @@ int main(int argc, const char * argv[]) {
                     } else {
                         interval = [[[NSString alloc] initWithCString:argv[intervalIndex] encoding:NSUTF8StringEncoding] doubleValue];
                     }
+                } else if ([item isEqualToString:@"-t"] || [item isEqualToString:@"--timeout"]) {
+                    argument = item;
+                    intervalStringIndex = i;
+                    intervalIndex = intervalStringIndex+1;
+                    if (intervalIndex >= argc) {
+                        [ConsoleIO printUsage];
+                        return 0;
+                    } else {
+                        timeout = [[[NSString alloc] initWithCString:argv[intervalIndex] encoding:NSUTF8StringEncoding] doubleValue];
+                    }
                 } else {
                     if (i != countIndex && i != countStringIndex && i != intervalIndex && i != intervalStringIndex) {
                         if ([item containsString:@":"] || [item containsString:@"."]) {
@@ -138,11 +149,11 @@ int main(int argc, const char * argv[]) {
                 }
             }
             
-            if ([argument isEqualToString:@"-c"] || [argument isEqualToString:@"--count"] || [argument isEqualToString:@"-i"] || [argument isEqualToString:@"--interval"]) {
+            if ([argument isEqualToString:@"-c"] || [argument isEqualToString:@"--count"] || [argument isEqualToString:@"-i"] || [argument isEqualToString:@"--interval"] || [argument isEqualToString:@"-t"] || [argument isEqualToString:@"--timeout"]) {
                 UInt16 p = port.intValue;
                 if (p && p <= 65535) {
                     if (count && count <= 65535) {
-                        ping(interval, ip, p, count, group, queue, sockets);
+                        ping(interval, ip, p, count, timeout, group, queue, sockets);
                     } else {
                         [ConsoleIO writeMessage:@"Count only a number, or out of range(1-65535)" to:OutputTypeStandard];
                         return 0;
