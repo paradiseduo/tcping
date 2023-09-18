@@ -21,7 +21,7 @@ Support MacOS only👍
 
       dP                     oo
       88
-    d8888P .d8888b. 88d888b. dP 88d888b. .d8888b.    {Version: 3.6}
+    d8888P .d8888b. 88d888b. dP 88d888b. .d8888b.    {Version: 3.7}
       88   88       88    88 88 88    88 88    88
       88   88.      88.  .88 88 88    88 88.  .88
       dP   `88888P  88Y888P  dP dP    dP `8888P88
@@ -44,7 +44,8 @@ ARGUMENTS:
 
 OPTIONS:
     -c, --count <count>         The number of times to repeat 'tcping'. Default value is 10, Max value is 65535
-    -i, --interval <interval>   The request interval(second). Default value is 1 second
+    -i, --interval <interval>   The request interval(second). Default value is 1 second 
+    -t, --timeout <time>        The request has timeout(second). Default value is 5 second 
     -h, --help                  Show help information.
 ```
 
